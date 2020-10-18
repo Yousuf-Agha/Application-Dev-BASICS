@@ -1,0 +1,186 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:toast/toast.dart';
+
+class CheesePizza extends StatefulWidget {
+  @override
+  _CheesePizzaState createState() => _CheesePizzaState();
+}
+class _CheesePizzaState extends State<CheesePizza> {
+  bool large = false;
+  bool medium = false;
+  bool small = false;
+  String largePizza = "";
+  String smallPizza = "";
+  String mediumPizza = "";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Cheese Pizza',
+          style: GoogleFonts.pacifico(fontSize: 30.0, color: Colors.white),
+        ),
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 120.0,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage('images/cheesePZ.png'),
+            ),
+            Text(
+              'Cheese Pizza',
+              style:
+              GoogleFonts.almarai(fontSize: 30.0, color: Colors.deepOrange),
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              color: Colors.deepOrange,
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: large,
+                    onChanged: (bool value) {
+                      setState(() {
+                        large = value;
+                        if (large) {
+                          largePizza = "Large";
+                          print('You picked large pizza');
+                        }else{
+                          largePizza = "";
+                        }
+                      });
+                    },
+                  ),
+                  Icon(
+                    Icons.note,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    'Large Pizza   - AED 30.0',
+                    style: GoogleFonts.almarai(
+                        fontSize: 25.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              color: Colors.deepOrange,
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: medium,
+                    onChanged: (bool value) {
+                      setState(() {
+                        medium = value;
+                        if (medium) {
+                          mediumPizza = "Medium";
+                          print('You picked Medium pizza');
+                        }else{
+                          mediumPizza = "";
+                        }
+                      });
+                    },
+                  ),
+                  Icon(
+                    Icons.note,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    'Medium Pizza   - AED 22.0',
+                    style: GoogleFonts.almarai(
+                        fontSize: 22.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              color: Colors.deepOrange,
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: small,
+                    onChanged: (bool value) {
+                      setState(() {
+                        small = value;
+                        if (small) {
+                          smallPizza = " Small";
+                          print('You picked large pizza');
+                        }else{
+                          smallPizza = "";
+                        }
+                      });
+                    },
+                  ),
+                  Icon(
+                    Icons.note,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    'Small Pizza   - AED 18.0',
+                    style: GoogleFonts.almarai(
+                        fontSize: 25.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10.0,),
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton(
+                  color: Colors.deepOrange,
+                  shape: StadiumBorder(),
+                  onPressed: (){
+                    Toast.show("$largePizza, $mediumPizza, $smallPizza size added to the cart", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM, backgroundColor: Colors.black38,);
+                    print('Item added to the cart');
+                  },
+                  child: Text('Add to cart', style: GoogleFonts.almarai(fontSize: 25, fontWeight: FontWeight.bold),),
+                ),
+                SizedBox(width: 20.0,),
+                RaisedButton(
+                  color: Colors.deepOrange,
+                  shape: StadiumBorder(),
+                  onPressed: (){
+                    Toast.show("$largePizza, $mediumPizza, $smallPizza size order has been placed", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM, backgroundColor: Colors.black38,);
+                    print('Item added to the cart');
+                  },
+                  child: Text('Place Order', style: GoogleFonts.almarai(fontSize: 25, fontWeight: FontWeight.bold),),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

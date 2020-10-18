@@ -1,0 +1,166 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:nut_pizza/Fries.dart';
+import 'package:nut_pizza/VegPizza.dart';
+import 'package:nut_pizza/YousufA.dart';
+import 'CheesePizza.dart';
+class PizzaMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Pizza Nut',
+          style: GoogleFonts.pacifico(fontSize: 30.0, color: Colors.white),
+        ),
+        backgroundColor: Colors.deepOrange,
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CheesePizza()));
+              print('Hurray... you tapped on Cheese Pizza');
+            },
+            child: Card(
+              elevation: 20.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              color: Colors.deepOrange,
+              margin: EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage('images/cheesePZ.png'),
+                    width: 100,
+                    height: 100,
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    'Cheese Pizza',
+                    style: GoogleFonts.pacifico(
+                        fontSize: 30.0, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => VegPizza()));
+              print('Hurray... you tapped on Cheese Pizza');
+            },
+            child: Card(
+              elevation: 20.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              color: Colors.deepOrange,
+              margin: EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage('images/VegetablePZ.png'),
+                    width: 100,
+                    height: 100,
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    'Vegetable Pizza',
+                    style: GoogleFonts.pacifico(
+                        fontSize: 30.0, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Fries()));
+              print('You tapped on Fries');
+            },
+            child: Card(
+              elevation: 20.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              color: Colors.deepOrange,
+              margin: EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage('images/Fries.png'),
+                    width: 100,
+                    height: 100,
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    'Fries',
+                    style: GoogleFonts.pacifico(
+                        fontSize: 30.0, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => YousufA()));
+              print ('You clicked on me?!');
+            },
+            child: Card(
+              elevation: 20.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              color: Colors.deepOrange,
+              margin: EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage('images/pepper.png'),
+                    width: 100,
+                    height: 100,
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    'Developed by: Yousuf A',
+                    style:
+                    GoogleFonts.pacifico(fontSize: 23.5, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+

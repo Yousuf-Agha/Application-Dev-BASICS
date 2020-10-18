@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+void main() {
+  runApp(LoginPage());
+}
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+class _LoginPageState extends State<LoginPage> {
+  final email_tfc = TextEditingController();
+  final pass_tfc = TextEditingController();
+  String msg = "";
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Main Login'),
+        ),
+        body: Container(
+          margin: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
+          child: Center(
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 55.0,
+                  backgroundImage: AssetImage('images/user_login.png'),
+                ),
+                SizedBox(height: 10.0,),
+                Text('Welcome to Skyline Store', style: TextStyle(fontSize: 20.0, color: Colors.blue),),
+                SizedBox(height: 10.0,),
+                TextField(
+                  controller: email_tfc,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter user name',
+                    icon: Icon(Icons.people, size: 40.0, color: Colors.blue,),
+                  ),
+                ),
+                SizedBox(height: 10.0,),
+                TextField(
+                  controller: pass_tfc,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      labelText: 'Enter Password',
+                      border: OutlineInputBorder(),
+                      icon: Icon(Icons.adjust, size: 40.0, color: Colors.blue,)
+                  ),
+                ),
+                RaisedButton(
+                  shape: StadiumBorder(),
+                  color: Colors.blue,
+                  
+                  child: Text('Login', style: TextStyle(fontSize: 35.0, color: Colors.white),),
+                  onPressed: (){
+                    setState(() {
+                      if ((email_tfc.text == "admin") & (pass_tfc.text == "12345")){
+                        msg = "Login Successful";
+                      }else{
+                        msg = "Your User name or Password is Incorrect";
+                      }
+                    });
+                  },
+                ),
+                Text('$msg', style: TextStyle(fontSize: 20.0, color: Colors.blue),),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
