@@ -1,0 +1,121 @@
+package com.example.yousufmakescalc
+
+import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.os.Message
+import android.view.Display
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+//import kotlin.android.synthetic.main.activity_main.*
+
+class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.R)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        var Textbox1 = findViewById<TextView>(R.id.number1)
+        var Textbox2 = findViewById<TextView>(R.id.number2)
+        var resultbox = findViewById<TextView>(R.id.result)
+
+        var addbutton = findViewById<Button>(R.id.add)
+        var multbutton = findViewById<Button>(R.id.mul)
+        var divbutton = findViewById<Button>(R.id.div)
+        var subbutton = findViewById<Button>(R.id.sub)
+        var clearbutton = findViewById<Button>(R.id.clear)
+
+
+        addbutton.setOnClickListener{
+
+         if (Textbox1.getText().toString() == ""){
+             Toast.makeText(this,"Please Enter Values for Num1",Toast.LENGTH_SHORT).show()
+             return@setOnClickListener
+
+         }
+            if (Textbox2.getText().toString() == ""){
+                Toast.makeText(this,"Please Enter Values for Num2",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+
+            }
+           var Value1 = Textbox1.text.toString().toInt()
+           var Value2 = Textbox2.text.toString().toInt()
+
+           var result = Value1 + Value2
+           resultbox.text = result.toString()
+
+         multbutton.setOnClickListener{
+             if (Textbox1.getText().toString() == ""){
+                 Toast.makeText(this,"Please Enter Values for Num1",Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             }
+             if (Textbox2.getText().toString() == ""){
+                 Toast.makeText(this,"Please Enter Values for Num2",Toast.LENGTH_SHORT).show()
+                 return@setOnClickListener
+
+             }
+           var Value1 = Textbox1.text.toString().toInt()
+           var Value2 = Textbox2.text.toString().toInt()
+
+
+           var result = Value1 * Value2
+           resultbox.text = result.toString()
+        }
+
+
+            divbutton.setOnClickListener{
+                if (Textbox1.getText().toString() == ""){
+                    Toast.makeText(this,"Please Enter Values for Num1",Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+
+                }
+                if (Textbox2.getText().toString() == ""){
+                    Toast.makeText(this,"Please Enter Values for Num2",Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+
+                }
+                var Value1 = Textbox1.text.toString().toInt()
+                var Value2 = Textbox2.text.toString().toInt()
+
+
+                var result = Value1 / Value2
+                resultbox.text = result.toString()
+            }
+
+            subbutton.setOnClickListener{
+                if (Textbox1.getText().toString() == ""){
+                    Toast.makeText(this,"Please Enter Values for Num1",Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+
+                }
+                if (Textbox2.getText().toString() == ""){
+                    Toast.makeText(this,"Please Enter Values for Num2",Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+
+                }
+                var Value1 = Textbox1.text.toString().toInt()
+                var Value2 = Textbox2.text.toString().toInt()
+
+
+                var result = Value1 - Value2
+                resultbox.text = result.toString()
+            }
+
+            clearbutton.setOnClickListener{
+
+             Textbox1.setText("").toString()
+             Textbox2.setText("").toString()
+             resultbox.setText("").toString()
+                Toast.makeText(this,"Clear is now working",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+
+    }
+}}
+
